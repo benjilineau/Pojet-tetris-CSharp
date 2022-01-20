@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -11,12 +11,11 @@ namespace Tetris
         Shape currentShape;
         Shape nextShape;
         Timer timer = new Timer();
-        bool freeze = false;
         public Form1()
         {
             InitializeComponent();
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(AssetsPath + @"tetris.wav");
-            player.PlayLooping();
+            player.Play();
             loadCanvas();
 
             currentShape = getRandomShapeWithCenterAligned();
@@ -25,7 +24,7 @@ namespace Tetris
             timer.Tick += Timer_Tick;
             timer.Interval = 500;
             timer.Start();
-            
+
             this.KeyDown += Form1_KeyDown;
         }
         private string AssetsPath = findAssetsPath();
@@ -55,21 +54,21 @@ namespace Tetris
 
             // Load bitmap into picture box
             pictureBox1.Image = canvasBitmap;
-            
+
             // Initialize canvas dot array. by default all elements are zero
             canvasDotArray = new int[canvasWidth, canvasHeight];
         }
-        
+
 
         int currentX;
         int currentY;
         private Shape getRandomShapeWithCenterAligned()
         {
             var shape = ShapesHandler.GetRandomShape();
-            
+
             // Calculate the x and y values as if the shape lies in the center
             currentX = 7;
-            currentY = 0;
+            currentY = 1;
 
             return shape;
         }
@@ -91,7 +90,7 @@ namespace Tetris
                 // get next shape
                 currentShape = nextShape;
                 nextShape = getNextShape();
-                
+
                 clearFilledRowsAndUpdateScore();
             }
         }
@@ -118,7 +117,8 @@ namespace Tetris
             {
                 timer.Stop();
                 MessageBox.Show("Game Over");
-                Application.Restart();
+                Application.Exit();
+                this.Close();
                 this.Close();
             }
         }
@@ -168,7 +168,7 @@ namespace Tetris
 
             pictureBox1.Image = workingBitmap;
         }
-        
+
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             var verticalMove = 0;
@@ -182,7 +182,7 @@ namespace Tetris
                 case Keys.Left:
                     verticalMove--;
                     break;
-                
+
                 // move shape right
                 case Keys.Right:
                     verticalMove++;
@@ -227,7 +227,7 @@ namespace Tetris
                 if (j == -1)
                 {
                     combo++;
-                                        // update the dot array based on the check
+                    // update the dot array based on the check
                     for (j = 0; j < canvasWidth; j++)
                     {
                         for (int k = i; k > 0; k--)
@@ -257,9 +257,8 @@ namespace Tetris
             }
             // update score and level values and labels
             label1.Text = "Score: " + score;
-            label2.Text = "Level: " + score /500;
+            label2.Text = "Level: " + score;
             // increase the speed 
-            timer.Interval = 500 - score/500 *2 ;
             if (timer.Interval < 70)
             {
                 timer.Interval = 70;
@@ -272,15 +271,15 @@ namespace Tetris
                 {
                     canvasGraphics = Graphics.FromImage(canvasBitmap);
                     var C = Brushes.Black;
-                    if  (canvasDotArray[i, j] == 1)
+                    if (canvasDotArray[i, j] == 1)
                     {
                         C = Brushes.Yellow;
-                    } 
+                    }
                     else if (canvasDotArray[i, j] == 2)
                     {
                         C = Brushes.Cyan;
                     }
-                    else if(canvasDotArray[i, j] == 3)
+                    else if (canvasDotArray[i, j] == 3)
                     {
                         C = Brushes.Purple;
                     }
@@ -335,7 +334,7 @@ namespace Tetris
             {
                 for (int j = 0; j < shape.Width; j++)
                 {
-                    
+
                     nextShapeGraphics.FillRectangle(
                         shape.Dots[i, j] != 0 ? shape.Color : Brushes.White,
                         (startX + j) * dotSize, (startY + i) * dotSize, dotSize, dotSize);
@@ -356,20 +355,6 @@ namespace Tetris
         private void label3_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Show();
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Options obj1 = new Options();
-            obj1.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
-            
-
-            obj1.ShowDialog();
-            this.Hide();
         }
     }
 }
