@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Tetris"
+    "\\assets",
+    "\\Tetris",
+    "\\Tetris\\Properties"
   ],
-  "SelectedNode": "\\Tetris\\Form1.cs",
+  "SelectedNode": "\\Tetris\\bin",
   "PreviewInSolutionExplorer": false
 }
