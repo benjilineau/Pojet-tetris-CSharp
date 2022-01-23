@@ -50,7 +50,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(51, 292);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 37);
             this.button1.TabIndex = 1;
@@ -61,7 +61,7 @@
             // trackBar1
             // 
             this.trackBar1.Location = new System.Drawing.Point(20, 195);
-            this.trackBar1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.trackBar1.Margin = new System.Windows.Forms.Padding(2);
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(532, 45);
             this.trackBar1.TabIndex = 0;
@@ -85,7 +85,7 @@
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Options";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Options_Load);

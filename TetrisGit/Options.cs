@@ -14,10 +14,15 @@ namespace Tetris
 {
     public partial class Options : Form
     {
+
+
         WMPLib.WindowsMediaPlayer wmp = new WMPLib.WindowsMediaPlayer();
         public Options()
         {
             InitializeComponent();
+            trackBar1.Value=5;
+            wmp.settings.volume=5;
+            label2.Text = trackBar1.Value.ToString();
 
         }
         
@@ -29,7 +34,7 @@ namespace Tetris
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
-        {
+        { 
             wmp.settings.volume = trackBar1.Value;
             label2.Text = trackBar1.Value.ToString();
 

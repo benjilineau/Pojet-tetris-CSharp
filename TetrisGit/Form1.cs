@@ -1,8 +1,4 @@
-<<<<<<< HEAD:TetrisGit/Form1.cs
 ﻿using System;
-=======
-using System;
->>>>>>> 04b766f495abb173642b04f45e54c5e440ec8e3d:Tetris/Form1.cs
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -43,8 +39,10 @@ namespace Tetris
         int canvasHeight = 22;
         int[,] canvasDotArray;
         int dotSize = 22;
-        private void loadCanvas()
+
+private void loadCanvas()
         {
+
             // Resize the picture box based on the dotsize and canvas size
             pictureBox1.Width = canvasWidth * dotSize;
             pictureBox1.Height = canvasHeight * dotSize;
@@ -71,8 +69,8 @@ namespace Tetris
             var shape = ShapesHandler.GetRandomShape();
 
             // Calculate the x and y values as if the shape lies in the center
-            currentX = 7;
-            currentY = 1;
+            currentX = 5;
+            currentY = -2;
 
             return shape;
         }
@@ -91,7 +89,7 @@ namespace Tetris
 
                 updateCanvasDotArrayWithCurrentShape();
 
-                // get next shape
+                //// get next shape
                 currentShape = nextShape;
                 nextShape = getNextShape();
 
@@ -117,18 +115,17 @@ namespace Tetris
 
         private void checkIfGameOver()
         {
-            if (currentY < -1)
+            if (currentY <= 0 )
             {
                 timer.Stop();
                 MessageBox.Show("Game Over");
                 Application.Exit();
                 this.Close();
-                this.Close();
             }
         }
 
         // returns if it reaches the bottom or touches any other blocks
-        private bool moveShapeIfPossible(int moveDown = 0, int moveSide = 0)
+        private bool moveShapeIfPossible(int moveSide = 0, int moveDown = 0)
         {
             var newX = currentX + moveSide;
             var newY = currentY + moveDown;
@@ -183,23 +180,26 @@ namespace Tetris
             switch (e.KeyCode)
             {
                 // move shape left
-                case Keys.Left:
-                    verticalMove--;
+                case Keys.Q:
+                    horizontalMove--;
                     break;
 
                 // move shape right
-                case Keys.Right:
-                    verticalMove++;
-                    break;
-
-                // move shape down faster
-                case Keys.Down:
+                case Keys.D:
                     horizontalMove++;
                     break;
 
+                // move shape down faster
+                case Keys.S:
+                    verticalMove++;
+                    break;
+
                 // rotate the shape clockwise
-                case Keys.Up:
-                    currentShape.turn();
+                case Keys.A:
+                    currentShape.turn("l");
+                    break;
+                case Keys.E:
+                    currentShape.turn("r");
                     break;
                 default:
                     return;

@@ -10,20 +10,38 @@ namespace Tetris
         public Brush Color;
 
         private int[,] backupDots;
-        public void turn()
+        public void turn(string way)
         {
             // back the dots values into backup dots
             // so that it can be simply used for rolling back
-            backupDots = Dots;
-
-            Dots = new int[Width, Height];
-            for (int i = 0; i < Width; i++)
+            if (way == "l")
             {
-                for (int j = 0; j < Height; j++)
+                backupDots = Dots;
+
+                Dots = new int[Width, Height];
+                for (int i = 0; i < Width; i++)
                 {
-                    Dots[i, j] = backupDots[Height - 1 - j, i];
+                    for (int j = 0; j < Height; j++)
+                    {
+                        Dots[i, j] = backupDots[Height - 1 - j, i];
+                    }
                 }
             }
+            else
+            {
+                backupDots = Dots;
+
+                Dots = new int[Width, Height];
+                for (int i = Width-1; i >= 0; i--)
+                {
+                    for (int j = 0; j < Height; j++)
+                    {
+                        Dots[i, j] = backupDots[Height - 1 - j, i];
+                    }
+                }
+            }
+
+           
 
             var temp = Width;
             Width = Height;
