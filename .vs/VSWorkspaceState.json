@@ -1,8 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+<<<<<<< HEAD
     "\\Tetris"
   ],
   "SelectedNode": "\\Tetris\\Menu.cs",
+=======
+    "\\assets",
+    "\\Tetris",
+    "\\Tetris\\Properties"
+  ],
+  "SelectedNode": "\\Tetris\\bin",
+>>>>>>> 04b766f495abb173642b04f45e54c5e440ec8e3d
   "PreviewInSolutionExplorer": false
 }

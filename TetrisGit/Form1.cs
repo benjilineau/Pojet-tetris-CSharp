@@ -1,4 +1,8 @@
+<<<<<<< HEAD:TetrisGit/Form1.cs
 ﻿using System;
+=======
+using System;
+>>>>>>> 04b766f495abb173642b04f45e54c5e440ec8e3d:Tetris/Form1.cs
 using System.Drawing;
 using System.IO;
 using System.Linq;
