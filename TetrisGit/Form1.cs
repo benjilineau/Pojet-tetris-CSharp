@@ -132,6 +132,8 @@ namespace Tetris
 
         private void updateCanvasDotArrayWithCurrentShape()
         {
+
+            checkIfGameOver();
             for (int i = 0; i < currentShape.Width; i++)
             {
                 for (int j = 0; j < currentShape.Height; j++)
@@ -194,7 +196,6 @@ namespace Tetris
 
             return true;
         }
-
         private void drawShape()
         {
             workingBitmap = new Bitmap(canvasBitmap);
@@ -214,6 +215,7 @@ namespace Tetris
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            label7.Text = "Hauteur :" + currentShape.Height.ToString() + " - Largeur :" + currentShape.Width.ToString() + "Current X :" + currentX;
             var verticalMove = 0;
             var horizontalMove = 0;
 
@@ -238,10 +240,10 @@ namespace Tetris
 
                 // rotate the shape clockwise
                 case Keys.A:
-                    currentShape.turn("l");
+                    verticalMove += currentShape.turn("l", currentX);
                     break;
                 case Keys.E:
-                    currentShape.turn("r");
+                    verticalMove += currentShape.turn("r", currentX);
                     break;
                 default:
                     return;
@@ -251,7 +253,7 @@ namespace Tetris
 
             // if the player was trying to rotate the shape, but
             // that move was not possible - rollback the shape
-            if (!isMoveSuccess && e.KeyCode == Keys.Up)
+            if (!isMoveSuccess && (e.KeyCode == Keys.A || e.KeyCode == Keys.E))
                 currentShape.rollback();
         }
 
@@ -396,6 +398,11 @@ namespace Tetris
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void label3_Click(object sender, EventArgs e)

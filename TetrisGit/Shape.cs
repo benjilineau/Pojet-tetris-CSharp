@@ -10,15 +10,18 @@ namespace Tetris
         public Brush Color;
 
         private int[,] backupDots;
-        public void turn(string way)
+        public void turn(string way,  int x)
         {
             // back the dots values into backup dots
             // so that it can be simply used for rolling back
+
+            backupDots = Dots;
+
+
+            Dots = new int[Width, Height];
+
             if (way == "l")
             {
-                backupDots = Dots;
-
-                Dots = new int[Width, Height];
                 for (int i = 0; i < Width; i++)
                 {
                     for (int j = 0; j < Height; j++)
@@ -29,23 +32,26 @@ namespace Tetris
             }
             else
             {
-                backupDots = Dots;
-
-                Dots = new int[Width, Height];
-                for (int i = Width-1; i >= 0; i--)
+                for (int i = 0; i < Width; i++)
                 {
                     for (int j = 0; j < Height; j++)
                     {
-                        Dots[i, j] = backupDots[Height - 1 - j, i];
+                        Dots[i, j] = backupDots[j, Width - 1 - i];
                     }
                 }
             }
 
-           
-
-            var temp = Width;
-            Width = Height;
-            Height = temp;
+            if (x + Height >= 0 && x + Height < 10)
+            {
+                var temp = Width;
+                Width = Height;
+                Height = temp;
+            }
+            else
+            {
+                Dots = backupDots;
+            }
+            
         }
 
         // the rolling back occures when player rotating the shape

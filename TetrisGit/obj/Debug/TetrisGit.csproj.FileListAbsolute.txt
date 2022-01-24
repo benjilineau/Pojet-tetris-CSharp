@@ -44,3 +44,4 @@ C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\TetrisGit.
 C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\TetrisGit.csproj.CoreCompileInputs.cache
 C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\TetrisGit.exe
 C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\TetrisGit.pdb
+C:\Users\reype\source\repos\TetrisGit\TetrisGit\obj\Debug\TetrisGit.gameOver.resources
