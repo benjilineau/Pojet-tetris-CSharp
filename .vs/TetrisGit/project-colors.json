@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "407ba0cf-65d5-4790-9f5b-ecbd7940ece1": {
+      "ProjectGuid": "407ba0cf-65d5-4790-9f5b-ecbd7940ece1",
+      "DisplayName": "TetrisGit",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
