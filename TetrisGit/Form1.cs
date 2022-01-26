@@ -9,6 +9,7 @@ namespace Tetris
 {
     public partial class Form1 : Form
     {
+        String Status ="play";
         Shape currentShape;
         Shape nextShape;
         Timer timer = new Timer();
@@ -171,9 +172,14 @@ namespace Tetris
         // returns if it reaches the bottom or touches any other blocks
         private bool moveShapeIfPossible(int moveSide = 0, int moveDown = 0)
         {
+            if (Status == "pause")
+            {
+                moveSide = 0;
+                moveDown = 0;
+            }
             var newX = currentX + moveSide;
             var newY = currentY + moveDown;
-
+            
             // check if it reaches the bottom or side bar
             if (newX < 0 || newX + currentShape.Width > canvasWidth
                 || newY + currentShape.Height > canvasHeight)
@@ -200,13 +206,17 @@ namespace Tetris
         {
             workingBitmap = new Bitmap(canvasBitmap);
             workingGraphics = Graphics.FromImage(workingBitmap);
-
+            Brush C = currentShape.Color;
+            if (Status == "pause")
+            {
+                C = Brushes.LightGray;
+            }
             for (int i = 0; i < currentShape.Width; i++)
             {
                 for (int j = 0; j < currentShape.Height; j++)
                 {
                     if (currentShape.Dots[j, i] != 0)
-                        workingGraphics.FillRectangle(currentShape.Color, (currentX + i) * dotSize, (currentY + j) * dotSize, dotSize, dotSize);
+                        workingGraphics.FillRectangle(C, (currentX + i) * dotSize, (currentY + j) * dotSize, dotSize, dotSize);
                 }
             }
 
@@ -215,39 +225,53 @@ namespace Tetris
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            label7.Text = "Hauteur :" + currentShape.Height.ToString() + " - Largeur :" + currentShape.Width.ToString() + "Current X :" + currentX;
+            //label7.Text = "Hauteur :" + currentShape.Height.ToString() + " - Largeur :" + currentShape.Width.ToString() + "Current X :" + currentX;
             var verticalMove = 0;
             var horizontalMove = 0;
 
             // calculate the vertical and horizontal move values
             // based on the key pressed
-            switch (e.KeyCode)
+            if (Status == "pause")
             {
-                // move shape left
-                case Keys.Q:
-                    horizontalMove--;
-                    break;
-
-                // move shape right
-                case Keys.D:
-                    horizontalMove++;
-                    break;
-
-                // move shape down faster
-                case Keys.S:
-                    verticalMove++;
-                    break;
-
-                // rotate the shape clockwise
-                case Keys.A:
-                    verticalMove += currentShape.turn("l", currentX);
-                    break;
-                case Keys.E:
-                    verticalMove += currentShape.turn("r", currentX);
-                    break;
-                default:
-                    return;
+                if (e.KeyCode == Keys.Escape)
+                {
+                    haveABreak();
+                }
             }
+            else
+            {
+                switch (e.KeyCode)
+                {
+                    // move shape left
+                    case Keys.Q:
+                        horizontalMove--;
+                        break;
+
+                    // move shape right
+                    case Keys.D:
+                        horizontalMove++;
+                        break;
+
+                    // move shape down faster
+                    case Keys.S:
+                        verticalMove++;
+                        break;
+
+                    // rotate the shape clockwise
+                    case Keys.A:
+                        currentShape.turn("l", currentX);
+                        break;
+                    case Keys.E:
+                        currentShape.turn("r", currentX);
+                        break;
+                    case Keys.Escape:
+                        haveABreak();
+                        break;
+                    default:
+                        return;
+                }
+            }
+            
 
             var isMoveSuccess = moveShapeIfPossible(horizontalMove, verticalMove);
 
@@ -318,7 +342,8 @@ namespace Tetris
                 for (int j = 0; j < canvasHeight; j++)
                 {
                     canvasGraphics = Graphics.FromImage(canvasBitmap);
-                    var C = Brushes.Black;
+                    var C = Brushes.LightGray;
+
                     if (canvasDotArray[i, j] == 1)
                     {
                         C = Brushes.Yellow;
@@ -356,6 +381,8 @@ namespace Tetris
                         canvasDotArray[i, j] != 0 ? C : Brushes.LightGray,
                         i * dotSize, j * dotSize, dotSize, dotSize
                         );
+
+                    
                 }
             }
 
@@ -395,6 +422,82 @@ namespace Tetris
             return shape;
         }
 
+        private void haveABreak()
+        {
+            if (Status == "play")
+            {
+                Status = "pause";
+                t.Stop();
+
+                for (int i = 0; i < canvasWidth; i++)
+                {
+                    for (int j = 0; j < canvasHeight; j++)
+                    {
+                        canvasGraphics = Graphics.FromImage(canvasBitmap);
+
+                        canvasGraphics.FillRectangle(Brushes.LightGray,
+                            i * dotSize, j * dotSize, dotSize, dotSize
+                            );
+                    }
+                }
+            }
+            else
+            {
+                t.Start();
+                Status = "play";
+                for (int i = 0; i < canvasWidth; i++)
+                {
+                    for (int j = 0; j < canvasHeight; j++)
+                    {
+                        canvasGraphics = Graphics.FromImage(canvasBitmap);
+                        var C = Brushes.LightGray;
+
+                        if (canvasDotArray[i, j] == 1)
+                        {
+                            C = Brushes.Yellow;
+                        }
+                        else if (canvasDotArray[i, j] == 2)
+                        {
+                            C = Brushes.Cyan;
+                        }
+                        else if (canvasDotArray[i, j] == 3)
+                        {
+                            C = Brushes.Purple;
+                        }
+                        else if (canvasDotArray[i, j] == 4)
+                        {
+                            C = Brushes.Orange;
+                        }
+                        else if (canvasDotArray[i, j] == 5)
+                        {
+                            C = Brushes.Blue;
+                        }
+                        else if (canvasDotArray[i, j] == 6)
+                        {
+                            C = Brushes.Red;
+                        }
+                        else if (canvasDotArray[i, j] == 7)
+                        {
+                            C = Brushes.Green;
+                        }
+                        else
+                        {
+                            C = Brushes.Black;
+                        }
+
+                        canvasGraphics.FillRectangle(
+                            canvasDotArray[i, j] != 0 ? C : Brushes.LightGray,
+                            i * dotSize, j * dotSize, dotSize, dotSize
+                            );
+
+
+                    }
+                }
+            }
+
+            label7.Text = Status.ToString();
+
+        }
         private void label6_Click(object sender, EventArgs e)
         {
 
