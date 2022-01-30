@@ -15,6 +15,7 @@ namespace Tetris
         System.Timers.Timer t;
         int h, m, s;
         int bestScore;
+        int level;
         public Form1()
         {
             InitializeComponent();
@@ -60,6 +61,20 @@ namespace Tetris
                     h += 1;
                 }
                 label4.Text = string.Format("{0}:{1}:{2}", h.ToString().PadLeft(2, '0'), m.ToString().PadLeft(2, '0'), s.ToString().PadLeft(2, '0'));
+                // increase the speed 
+                if (s == 0 || s == 30)
+                {
+                    level += 1;
+                    if (timer.Interval - 50 <= 100)
+                    {
+                        timer.Interval = 100;
+                    }
+                    else
+                    {
+                        timer.Interval -= 50;
+                    }
+                }
+                label7.Text = timer.Interval.ToString() + "-----" + s.ToString() + "==="+ currentY +"-"+ Height;
             }));
         }
         private string AssetsPath = findAssetsPath();
@@ -142,7 +157,7 @@ namespace Tetris
                 {
                     if (currentShape.Dots[j, i] != 0)
                     {
-                        if (Width<=i)
+                        if (Height>= currentY + j)
                         {
                             outOfRange = true;
                             checkIfGameOver();
@@ -341,28 +356,9 @@ namespace Tetris
                 score += 1000;
             }
             // update score and level values and labels
-            int level = timer.Interval / 10;
             label1.Text = "Score: " + score;
             label2.Text = "Level: " + level;
-            // increase the speed 
-            if (m == 0 || m == 30)
-            {
-                level += 1;
-                if(timer.Interval - 20 <= 100)
-                {
-                    timer.Interval = 100;
-                }
-                else
-                {
-                    timer.Interval -= 20;
-                }
-            }
-            else
-            {
-                timer.Interval -= level * 100;
-
-            }
-            label7.Text = timer.Interval.ToString();
+            
 
             // Draw panel based on the updated array values
             for (int i = 0; i < canvasWidth; i++)
