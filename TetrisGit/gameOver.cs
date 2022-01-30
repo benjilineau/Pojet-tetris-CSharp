@@ -39,5 +39,10 @@ namespace Tetris
         {
             Application.Exit();
         }
+
+        private void gameOver_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

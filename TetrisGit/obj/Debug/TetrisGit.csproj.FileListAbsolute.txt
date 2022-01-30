@@ -61,3 +61,6 @@ C:\Users\esteb\Source\Repos\Pojet-tetris-CSharp\TetrisGit\obj\Debug\TetrisGit.cs
 C:\Users\esteb\Source\Repos\Pojet-tetris-CSharp\TetrisGit\obj\Debug\TetrisGit.csproj.CoreCompileInputs.cache
 C:\Users\esteb\Source\Repos\Pojet-tetris-CSharp\TetrisGit\obj\Debug\TetrisGit.exe
 C:\Users\esteb\Source\Repos\Pojet-tetris-CSharp\TetrisGit\obj\Debug\TetrisGit.pdb
+C:\Users\esteb\Source\Repos\Pojet-tetris-CSharp\TetrisGit\bin\Debug\TetrisGit.exe.config
+C:\Users\esteb\Source\Repos\Pojet-tetris-CSharp\TetrisGit\bin\Debug\TetrisGit.exe
+C:\Users\esteb\Source\Repos\Pojet-tetris-CSharp\TetrisGit\bin\Debug\TetrisGit.pdb
