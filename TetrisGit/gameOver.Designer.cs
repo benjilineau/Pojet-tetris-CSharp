@@ -1,4 +1,4 @@
-﻿namespace TetrisGit
+﻿namespace Tetris
 {
     partial class gameOver
     {

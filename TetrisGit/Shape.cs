@@ -41,7 +41,7 @@ namespace Tetris
                 }
             }
 
-            if (x + Height >= 0 && x + Height < 10)
+            if (x + Height >= 0 && x + Height <= 10)
             {
                 var temp = Width;
                 Width = Height;

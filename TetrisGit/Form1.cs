@@ -3,7 +3,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using TetrisGit;
 
 namespace Tetris
 {
@@ -31,6 +30,8 @@ namespace Tetris
             timer.Start();
             this.KeyDown += Form1_KeyDown;
             label6.Text = "Best score: " + bestScore.ToString();
+
+
         }
        
 
@@ -133,7 +134,7 @@ namespace Tetris
 
         private void updateCanvasDotArrayWithCurrentShape()
         {
-
+            bool outOfRange = false;
             checkIfGameOver();
             for (int i = 0; i < currentShape.Width; i++)
             {
@@ -141,11 +142,23 @@ namespace Tetris
                 {
                     if (currentShape.Dots[j, i] != 0)
                     {
-                        canvasDotArray[currentX + i, currentY + j] = currentShape.Dots[j, i];
+                        if (Width<=i)
+                        {
+                            outOfRange = true;
+                            checkIfGameOver();
+                            break;
+                        }
+                        else
+                        { 
+                            canvasDotArray[currentX + i, currentY + j] = currentShape.Dots[j, i];
+                        }
                     }
                 }
+                if (outOfRange)
+                {
+                    break;
+                }
             }
-            checkIfGameOver();
         }
 
         private void checkIfGameOver()
@@ -328,13 +341,28 @@ namespace Tetris
                 score += 1000;
             }
             // update score and level values and labels
+            int level = timer.Interval / 10;
             label1.Text = "Score: " + score;
-            label2.Text = "Level: " + score;
+            label2.Text = "Level: " + level;
             // increase the speed 
-            if (timer.Interval < 70)
+            if (m == 0 || m == 30)
             {
-                timer.Interval = 70;
+                level += 1;
+                if(timer.Interval - 20 <= 100)
+                {
+                    timer.Interval = 100;
+                }
+                else
+                {
+                    timer.Interval -= 20;
+                }
             }
+            else
+            {
+                timer.Interval -= level * 100;
+
+            }
+            label7.Text = timer.Interval.ToString();
 
             // Draw panel based on the updated array values
             for (int i = 0; i < canvasWidth; i++)
@@ -440,6 +468,8 @@ namespace Tetris
                             );
                     }
                 }
+                Pause obj1 = new Pause();
+                obj1.Show();
             }
             else
             {
@@ -495,7 +525,6 @@ namespace Tetris
                 }
             }
 
-            label7.Text = Status.ToString();
 
         }
         private void label6_Click(object sender, EventArgs e)

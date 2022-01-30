@@ -7,35 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tetris;
 
 namespace Tetris
 {
-    public partial class gameOver : Form
+    public partial class Pause : Form
     {
-        public gameOver(int score)
+        public Pause()
         {
             InitializeComponent();
-            label1.Text = "Score: " + score.ToString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            Form1 obj1 = new Form1();
-            obj1.Show();
-            this.Close();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Tetris.Menu obj1 = new Tetris.Menu();
+            Options obj1 = new Options();
             obj1.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
     }
 }
