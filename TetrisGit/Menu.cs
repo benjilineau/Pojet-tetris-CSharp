@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TetrisGit;
 
 namespace Tetris
 {
@@ -42,14 +43,14 @@ namespace Tetris
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 obj1 = new Form1(0);
+            firstGame obj1 = new firstGame();
             obj1.Show();
             this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void label1_Click(object sender, EventArgs e)
