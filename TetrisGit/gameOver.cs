@@ -13,15 +13,17 @@ namespace Tetris
 {
     public partial class gameOver : Form
     {
-        public gameOver(int score)
+        int bestScore = 0;
+        public gameOver(int score, int BestScore)
         {
             InitializeComponent();
+            bestScore = BestScore;
             label1.Text = "Score: " + score.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 obj1 = new Form1();
+            Form1 obj1 = new Form1(bestScore);
             obj1.Show();
             this.Close();
         }
