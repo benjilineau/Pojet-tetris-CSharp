@@ -53,6 +53,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="tuto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tuto.Designer.cs">
+      <DependentUpon>tuto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pause.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,14 +104,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="tuto.resx">
+      <DependentUpon>tuto.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -122,6 +125,7 @@
   <ItemGroup>
     <Content Include="assets\tetris.jpg" />
     <Content Include="assets\tetris.wav" />
+    <None Include="Resources\tutotetristefinal.png" />
     <None Include="Resources\sound.png" />
   </ItemGroup>
   <ItemGroup>
