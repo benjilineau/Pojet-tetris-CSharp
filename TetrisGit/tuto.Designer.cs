@@ -35,16 +35,19 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 602);
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Designer Block", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(573, 564);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 50);
+            this.button1.Size = new System.Drawing.Size(202, 72);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Back";
+            this.button1.Text = "Go back";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::TetrisGit.Properties.Resources.tutotetristefinal;
             this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(804, 664);
