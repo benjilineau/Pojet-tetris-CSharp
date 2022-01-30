@@ -14,9 +14,13 @@ namespace Tetris
 {
     public partial class Menu : Form
     {
-        public Menu()
+        Dictionary<string, string> command;
+        public Menu(Dictionary<string, string> C)
         {
             InitializeComponent();
+
+            command = C;
+
             PictureBox pb1 = new PictureBox();
             pb1.Image = ResizeImage(Image.FromFile(AssetsPath + @"tetris.jpg"), new Size(720, 480));
             pb1.Location = new Point(0, 0);
@@ -43,7 +47,7 @@ namespace Tetris
 
         private void button1_Click(object sender, EventArgs e)
         {
-            firstGame obj1 = new firstGame();
+            firstGame obj1 = new firstGame(command);
             obj1.Show();
             this.Hide();
         }
@@ -60,9 +64,8 @@ namespace Tetris
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Options obj1 = new Options();
+            Options obj1 = new Options(command);
             obj1.Show();
-            this.Hide();
         }
     }
 }

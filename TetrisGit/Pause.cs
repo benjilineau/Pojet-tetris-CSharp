@@ -12,9 +12,11 @@ namespace Tetris
 {
     public partial class Pause : Form
     {
-        public Pause()
+        Dictionary<string, string> command;
+        public Pause(Dictionary<string, string> C)
         {
             InitializeComponent();
+            command = C;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -24,7 +26,7 @@ namespace Tetris
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Options obj1 = new Options();
+            Options obj1 = new Options(command);
             obj1.Show();
         }
 
@@ -36,6 +38,11 @@ namespace Tetris
         private void button3_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Pause_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

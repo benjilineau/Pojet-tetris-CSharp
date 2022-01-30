@@ -13,9 +13,11 @@ namespace TetrisGit
 {
     public partial class firstGame : Form
     {
-        public firstGame()
+        Dictionary<string, string> command;
+        public firstGame(Dictionary<string, string> C)
         {
             InitializeComponent();
+            command = C;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -25,16 +27,21 @@ namespace TetrisGit
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 obj1 = new Form1(0);
+            Form1 obj1 = new Form1(0, command);
             obj1.Show();
             this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            tuto obj1 = new tuto();
+            tuto obj1 = new tuto(command);
             obj1.Show();
             this.Close();
+        }
+
+        private void firstGame_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

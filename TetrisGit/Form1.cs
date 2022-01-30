@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -14,15 +15,18 @@ namespace Tetris
         Timer timer = new Timer();
         System.Timers.Timer t;
         int h, m, s;
+
+        Dictionary<string, string> command;
         int bestScore;
         int level;
-        public Form1(int BestScore)
+        public Form1(int BestScore, Dictionary<string, string> C)
         {
             InitializeComponent();
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(AssetsPath + @"tetris.wav");
             player.PlayLooping();
             loadCanvas();
 
+            command = C;
             bestScore = BestScore;
 
             currentShape = getRandomShapeWithCenterAligned();
@@ -193,7 +197,7 @@ namespace Tetris
                 t.Stop();
                 timer.Stop(); 
                 checkBestScore(score);
-                gameOver obj1 = new gameOver(score, bestScore);
+                gameOver obj1 = new gameOver(score, bestScore, command);
                 checkBestScore(score);
                 obj1.Show();
                 this.Close();
@@ -279,35 +283,34 @@ namespace Tetris
             }
             else
             {
-                switch (e.KeyCode)
+                if (e.KeyCode.ToString() == command["Left"])
                 {
-                    // move shape left
-                    case Keys.Q:
-                        horizontalMove--;
-                        break;
 
-                    // move shape right
-                    case Keys.D:
-                        horizontalMove++;
-                        break;
+                    horizontalMove--;
+                }
+                if (e.KeyCode.ToString() == command["Right"])
+                {
 
-                    // move shape down faster
-                    case Keys.S:
-                        verticalMove++;
-                        break;
+                    horizontalMove++;
+                }
+                if (e.KeyCode.ToString() == command["Down"])
+                {
 
-                    // rotate the shape clockwise
-                    case Keys.A:
-                        currentShape.turn("l", currentX);
-                        break;
-                    case Keys.E:
-                        currentShape.turn("r", currentX);
-                        break;
-                    case Keys.Escape:
-                        haveABreak();
-                        break;
-                    default:
-                        return;
+                    verticalMove++;
+                }
+                if (e.KeyCode.ToString() == command["TLeft"])
+                {
+
+                    currentShape.turn("l", currentX);
+                }
+                if (e.KeyCode.ToString() == command["TRight"])
+                {
+
+                    currentShape.turn("r", currentX);
+                }
+                if (e.KeyCode == Keys.Escape)
+                {
+                    haveABreak();
                 }
             }
             
@@ -475,7 +478,7 @@ namespace Tetris
                             );
                     }
                 }
-                Pause obj1 = new Pause();
+                Pause obj1 = new Pause(command);
                 obj1.Show();
             }
             else

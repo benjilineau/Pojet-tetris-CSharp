@@ -15,21 +15,21 @@ namespace Tetris
     public partial class Options : Form
     {
 
-
+        Dictionary<string, string> command;
         WMPLib.WindowsMediaPlayer wmp = new WMPLib.WindowsMediaPlayer();
-        public Options()
+        public Options(Dictionary<string, string> C)
         {
             InitializeComponent();
+
+            command = C;
+
             trackBar1.Value=5;
             wmp.settings.volume=5;
             label3.Text = "Volume = " + trackBar1.Value.ToString();
-
         }
         
         private void button1_Click(object sender, EventArgs e)
         {
-            Menu obj1 = new Menu();
-            obj1.Show();
             this.Close();
         }
 
@@ -52,7 +52,8 @@ namespace Tetris
 
         private void label4_Click(object sender, EventArgs e)
         {
-
+            Controler obj = new Controler(command);
+            obj.Show();
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -72,9 +73,44 @@ namespace Tetris
 
         private void label11_Click(object sender, EventArgs e)
         {
-            tuto obj1 = new tuto();
+            tuto obj1 = new tuto(command);
             obj1.Show();
             this.Hide();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

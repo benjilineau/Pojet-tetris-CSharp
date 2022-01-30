@@ -13,9 +13,11 @@ namespace Tetris
 {
     public partial class tuto : Form
     {
-        public tuto()
+        Dictionary<string, string> command;
+        public tuto(Dictionary<string, string> C)
         {
             InitializeComponent();
+            command = C; 
             PictureBox pb1 = new PictureBox();
             pb1.Image = ResizeImage(Image.FromFile(AssetsPath + @"tuto.png"), new Size(804, 664));
             pb1.Location = new Point(0, 0);
@@ -25,7 +27,7 @@ namespace Tetris
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Options obj1 = new Options();
+            Menu obj1 = new Menu(command);
             obj1.Show();
             this.Close();
         }
