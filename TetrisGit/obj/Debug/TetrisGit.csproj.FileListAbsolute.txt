@@ -64,3 +64,4 @@ C:\Users\esteb\Source\Repos\Pojet-tetris-CSharp\TetrisGit\obj\Debug\TetrisGit.pd
 C:\Users\esteb\Source\Repos\Pojet-tetris-CSharp\TetrisGit\bin\Debug\TetrisGit.exe.config
 C:\Users\esteb\Source\Repos\Pojet-tetris-CSharp\TetrisGit\bin\Debug\TetrisGit.exe
 C:\Users\esteb\Source\Repos\Pojet-tetris-CSharp\TetrisGit\bin\Debug\TetrisGit.pdb
+C:\Users\esteb\Source\Repos\Pojet-tetris-CSharp\TetrisGit\obj\Debug\TetrisGit.firstGame.resources
