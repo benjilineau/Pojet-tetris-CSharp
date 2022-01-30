@@ -16,12 +16,14 @@ namespace Tetris
         int h, m, s;
         int bestScore;
         int level;
-        public Form1()
+        public Form1(int BestScore)
         {
             InitializeComponent();
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(AssetsPath + @"tetris.wav");
-            player.Play();
+            player.PlayLooping();
             loadCanvas();
+
+            bestScore = BestScore;
 
             currentShape = getRandomShapeWithCenterAligned();
             nextShape = getNextShape();
@@ -150,30 +152,38 @@ namespace Tetris
         private void updateCanvasDotArrayWithCurrentShape()
         {
             bool outOfRange = false;
-            checkIfGameOver();
-            for (int i = 0; i < currentShape.Width; i++)
+            if (currentShape.Height + currentY >= Height -1)
             {
-                for (int j = 0; j < currentShape.Height; j++)
+                checkIfGameOver();
+
+            }
+            else
+            {
+                for (int i = 0; i < currentShape.Width; i++)
                 {
-                    if (currentShape.Dots[j, i] != 0)
+                    for (int j = 0; j < currentShape.Height; j++)
                     {
-                        if (Height>= currentY + j)
+                        if (currentShape.Dots[j, i] != 0)
                         {
-                            outOfRange = true;
-                            checkIfGameOver();
-                            break;
-                        }
-                        else
-                        { 
-                            canvasDotArray[currentX + i, currentY + j] = currentShape.Dots[j, i];
+                            if (currentY + j<=0 )
+                            {
+                                outOfRange = true;
+                                checkIfGameOver();
+                                break;
+                            }
+                            else
+                            { 
+                                canvasDotArray[currentX + i, currentY + j] = currentShape.Dots[j, i];
+                            }
                         }
                     }
-                }
-                if (outOfRange)
-                {
-                    break;
+                    if (outOfRange)
+                    {
+                        break;
+                    }
                 }
             }
+            
         }
 
         private void checkIfGameOver()
@@ -181,8 +191,9 @@ namespace Tetris
             if (currentY <= 0 )
             {
                 t.Stop();
-                timer.Stop(); ;
-                gameOver obj1 = new gameOver(score);
+                timer.Stop(); 
+                checkBestScore(score);
+                gameOver obj1 = new gameOver(score, bestScore);
                 checkBestScore(score);
                 obj1.Show();
                 this.Close();
