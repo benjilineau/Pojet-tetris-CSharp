@@ -72,8 +72,8 @@ namespace Tetris
 
         private void label11_Click(object sender, EventArgs e)
         {
-            //Options obj1 = new Tuto();
-            //obj1.Show();
+            tuto obj1 = new tuto();
+            obj1.Show();
             this.Hide();
         }
     }

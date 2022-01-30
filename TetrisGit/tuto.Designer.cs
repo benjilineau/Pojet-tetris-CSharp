@@ -1,4 +1,4 @@
-﻿namespace TetrisGit
+﻿namespace Tetris
 {
     partial class tuto
     {
@@ -47,7 +47,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::TetrisGit.Properties.Resources.tutotetristefinal;
+            this.pictureBox1.Image = global::Tetris.Properties.Resources.tutotetristefinal;
             this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(804, 664);
@@ -63,6 +63,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "tuto";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.tuto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
