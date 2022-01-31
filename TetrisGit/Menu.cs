@@ -18,11 +18,14 @@ namespace Tetris
         public Menu(Dictionary<string, string> C)
         {
             InitializeComponent();
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(AssetsPath + @"menu.wav");
+            player.PlayLooping();
+           
 
             command = C;
 
             PictureBox pb1 = new PictureBox();
-            pb1.Image = ResizeImage(Image.FromFile(AssetsPath + @"tetris.jpg"), new Size(720, 480));
+            pb1.Image = ResizeImage(Image.FromFile(AssetsPath + @"tetriste.jpg"), new Size(1354, 756));
             pb1.Location = new Point(0, 0);
             pb1.SizeMode = PictureBoxSizeMode.AutoSize;
             this.Controls.Add(pb1);

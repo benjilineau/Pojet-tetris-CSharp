@@ -27,8 +27,6 @@ namespace Tetris
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Menu obj1 = new Menu(command);
-            obj1.Show();
             this.Close();
         }
 

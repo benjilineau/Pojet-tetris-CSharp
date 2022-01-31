@@ -36,7 +36,6 @@ C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\TetrisGit.
 C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\Interop.WMPLib.dll
 C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\TetrisGit.csproj.ResolveComReference.cache
 C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\Tetris.Form1.resources
-C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\TetrisGit.gameOver.resources
 C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\Tetris.Menu.resources
 C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\Tetris.Options.resources
 C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\TetrisGit.Properties.Resources.resources
@@ -68,3 +67,8 @@ C:\Users\esteb\Source\Repos\Pojet-tetris-CSharp\TetrisGit\obj\Debug\TetrisGit.fi
 C:\Users\reype\source\repos\TetrisGit\TetrisGit\obj\Debug\TetrisGit.firstGame.resources
 C:\Users\reype\source\repos\TetrisGit\TetrisGit\obj\Debug\Tetris.tuto.resources
 C:\Users\reype\source\repos\TetrisGit\TetrisGit\obj\Debug\Tetris.Controler.resources
+C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\Tetris.Controler.resources
+C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\TetrisGit.firstGame.resources
+C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\Tetris.gameOver.resources
+C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\Tetris.Pause.resources
+C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\Tetris.tuto.resources
