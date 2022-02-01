@@ -26,7 +26,7 @@ namespace Tetris
             player.PlayLooping();
             loadCanvas();
             PictureBox pb1 = new PictureBox();
-            pb1.Image = ResizeImage(Image.FromFile(AssetsPath + @"game.png"), new Size(804, 664));
+            pb1.Image = ResizeImage(Image.FromFile(AssetsPath + @"game.png"), new Size(628, 607));
             pb1.Location = new Point(0, 0);
             pb1.SizeMode = PictureBoxSizeMode.AutoSize;
             this.Controls.Add(pb1);
@@ -40,7 +40,7 @@ namespace Tetris
             timer.Interval = 500;
             timer.Start();
             this.KeyDown += Form1_KeyDown;
-            label6.Text = "Best score: " + bestScore.ToString();
+            label6.Text = bestScore.ToString();
 
 
         }
@@ -375,8 +375,8 @@ namespace Tetris
                 score += 1000;
             }
             // update score and level values and labels
-            label1.Text = "Score: " + score;
-            label2.Text = "Level: " + level;
+            label1.Text = score.ToString();
+            label2.Text = level.ToString();
             
 
             // Draw panel based on the updated array values
@@ -547,6 +547,10 @@ namespace Tetris
 
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void label3_Click(object sender, EventArgs e)
         {

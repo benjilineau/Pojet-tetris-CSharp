@@ -72,3 +72,4 @@ C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\TetrisGit.
 C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\Tetris.gameOver.resources
 C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\Tetris.Pause.resources
 C:\Users\Benjamin\Desktop\try\Pojet-tetris-CSharp\TetrisGit\obj\Debug\Tetris.tuto.resources
+C:\Users\esteb\Source\Repos\Pojet-tetris-CSharp\TetrisGit\obj\Debug\Tetris.Controler.resources
