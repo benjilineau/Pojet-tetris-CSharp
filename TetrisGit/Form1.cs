@@ -25,7 +25,11 @@ namespace Tetris
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(AssetsPath + @"tetris.wav");
             player.PlayLooping();
             loadCanvas();
-
+            PictureBox pb1 = new PictureBox();
+            pb1.Image = ResizeImage(Image.FromFile(AssetsPath + @"game.png"), new Size(804, 664));
+            pb1.Location = new Point(0, 0);
+            pb1.SizeMode = PictureBoxSizeMode.AutoSize;
+            this.Controls.Add(pb1);
             command = C;
             bestScore = BestScore;
 
@@ -40,7 +44,10 @@ namespace Tetris
 
 
         }
-       
+        private Image ResizeImage(Image img, Size size)
+        {
+            return (Image)(new Bitmap(img, size));
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
