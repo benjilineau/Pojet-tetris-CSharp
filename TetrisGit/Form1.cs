@@ -80,7 +80,6 @@ namespace Tetris
                         timer.Interval -= 50;
                     }
                 }
-                label7.Text = timer.Interval.ToString() + "-----" + s.ToString() + "==="+ currentY +"-"+ Height;
             }));
         }
         private string AssetsPath = findAssetsPath();
@@ -268,7 +267,6 @@ namespace Tetris
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            //label7.Text = "Hauteur :" + currentShape.Height.ToString() + " - Largeur :" + currentShape.Width.ToString() + "Current X :" + currentX;
             var verticalMove = 0;
             var horizontalMove = 0;
 
@@ -542,10 +540,6 @@ namespace Tetris
 
         }
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void label3_Click(object sender, EventArgs e)
         {

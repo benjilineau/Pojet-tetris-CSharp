@@ -75,7 +75,7 @@ namespace Tetris
         {
             tuto obj1 = new tuto(command);
             obj1.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

@@ -125,16 +125,6 @@
             this.label6.Text = "label6";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(144, 523);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Valeur test";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
