@@ -1,7 +1,10 @@
-# Projet Tetriste c#
+![](https://i.imgur.com/eROqz1H.png)
 
-> REYPE Costa
-> GELINEAU Benjamin 
+
+## Team
+
+> REYPE Costa,
+> GELINEAU Benjamin, 
 > MARTINEZ Esteban
 
 
